@@ -1,0 +1,36 @@
+# @author nikoeleison
+
+#--- global
+separator=true
+separator_block_width=25
+
+[eth]
+command=sh ~/.config/i3/script/eth.sh
+interval=5
+
+[wlan]
+command=sh ~/.config/i3/script/wlan.sh
+interval=5
+
+[cpu_temperature]
+command=sh ~/.config/i3/script/cpu_temperature.sh
+interval=10
+
+[cpu]
+command=sh ~/.config/i3/script/cpu.sh
+interval=5
+
+[ram]
+command=sh ~/.config/i3/script/ram.sh
+interval=1
+
+[battery]
+command=sh ~/.config/i3/script/battery.sh
+interval=1
+
+[datetime]
+label= 
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+# vim: ft=cfg

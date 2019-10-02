@@ -9,3 +9,8 @@
 !/xstart.sh
 !/switch-intel.sh
 !/switch-nvidia.sh
+
+
+!/.config/
+/.config/*
+!/.config/i3
