@@ -1,0 +1,6 @@
+# @author nikoeleison
+
+rofi.combi-modi: window,ssh,run
+rofi.theme: ~/.config/rofi/rofi.rasi
+rofi.font: UbuntuMono-R 12
+rofi.modi: combi
