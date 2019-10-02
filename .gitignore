@@ -4,3 +4,8 @@
 !/.vimrc
 !/.tmux.conf
 !/.bashrc
+!/.xinitrc
+!/.Xresources
+!/xstart.sh
+!/switch-intel.sh
+!/switch-nvidia.sh
