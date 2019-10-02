@@ -9,8 +9,10 @@
 !/xstart.sh
 !/switch-intel.sh
 !/switch-nvidia.sh
+!/wal.sh
 
 
 !/.config/
 /.config/*
 !/.config/i3
+!/.config/wal
