@@ -233,8 +233,8 @@ client.background				$bg
 
 #--- bar
 bar {
-	status_command i3status -c ~/.config/i3/status
-	#status_command i3blocks -c ~/.config/i3/blocks
+	#status_command i3status -c ~/.config/i3/status
+	status_command i3blocks -c ~/.config/i3/blocks
 	#position top
 	colors {
 		background	$bg
