@@ -13,7 +13,7 @@ elif [ $isWlan == "1" ]; then
 	upload=`ifstat wlp3s0 | grep wlp3s0 | awk '{print $3}'`
 	echo "  $download B/s  $upload B/s"
 else
-	echo "N/A"
+	echo " OFFLINE"
 fi
 
 exit 0
