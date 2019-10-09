@@ -16,8 +16,8 @@ interval=1
 #command=sh ~/.config/i3/script/wlan.sh
 #interval=1
 
-[cpu_temperature]
-command=sh ~/.config/i3/script/cpu_temperature.sh
+[temperature]
+command=sh ~/.config/i3/script/temperature.sh
 interval=10
 
 [cpu]
