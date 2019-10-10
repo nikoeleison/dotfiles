@@ -19,7 +19,7 @@ sort=yes
 idle_threshold=120
 
 #--- text
-font="pango:UbuntuMono-R 12"
+font="pango:sans 12"
 line_height=0
 markup=full
 format="<b>%s</b>\n%b"
