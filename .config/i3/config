@@ -12,7 +12,7 @@ floating_modifier $mod
 #--- ui
 
 # font
-font pango:sans 12
+font pango:sans 11
 
 # border
 for_window [class="^.*"] border pixel 1
@@ -115,7 +115,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 #--- exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:sans 12' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -f 'pango:sans 11' -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 #=============
 #=== Window
