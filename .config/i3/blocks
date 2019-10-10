@@ -1,8 +1,8 @@
 # @author nikoeleison
 
 #--- global
-separator=false
-separator_block_width=10
+separator=true
+separator_block_width=25
 
 [netspeed]
 command=sh ~/.config/i3/script/netspeed.sh
