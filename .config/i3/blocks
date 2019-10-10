@@ -1,20 +1,12 @@
 # @author nikoeleison
 
 #--- global
-separator=true
-separator_block_width=25
+separator=false
+separator_block_width=10
 
 [netspeed]
 command=sh ~/.config/i3/script/netspeed.sh
 interval=1
-
-#[eth]
-#command=sh ~/.config/i3/script/eth.sh
-#interval=1
-
-#[wlan]
-#command=sh ~/.config/i3/script/wlan.sh
-#interval=1
 
 [temperature]
 command=sh ~/.config/i3/script/temperature.sh
