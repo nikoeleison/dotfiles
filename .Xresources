@@ -1,8 +1,8 @@
 # @author nikoeleison
 
 #--- font
-URxvt.font: xft:UbuntuMono-R:size=12:antialias=true
-URxvt.boldFont: xft:UbuntuMono-B:bold:size=12:antialias=true
+URxvt.font: xft:LiberationMono:size=11:antialias=true
+URxvt.boldFont: xft:LiberationMono-Bold:bold:size=11:antialias=true
 
 #--- scroll
 # disable scroll ui
