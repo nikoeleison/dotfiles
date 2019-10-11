@@ -99,6 +99,8 @@ for_window [class="Transmission"] floating enable
 assign [class="Steam"] $ws10
 assign [class="Forticlientsslvpn"] $ws10
 
+assign [class="VirtualBox"] $ws9
+
 assign [class="DBeaver"] $ws3
 assign [class="Spring Tool Suite"] $ws3
 
