@@ -103,6 +103,7 @@ assign [class="VirtualBox"] $ws9
 
 assign [class="DBeaver"] $ws3
 assign [class="Spring Tool Suite"] $ws3
+assign [class="jetbrains-idea-ce"] $ws3
 
 assign [class="firefox"] $ws2
 
