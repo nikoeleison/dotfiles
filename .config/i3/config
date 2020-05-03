@@ -102,10 +102,12 @@ assign [class="Forticlientsslvpn"] $ws10
 assign [class="VirtualBox"] $ws9
 
 assign [class="DBeaver"] $ws3
+assign [class="Eclipse"] $ws3
 assign [class="Spring Tool Suite"] $ws3
 assign [class="jetbrains-idea-ce"] $ws3
 
 assign [class="firefox"] $ws2
+assign [class="Chromium"] $ws2
 
 #=============
 #=== System
