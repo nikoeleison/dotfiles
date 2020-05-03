@@ -40,6 +40,9 @@ Plug 'mattn/emmet-vim'
 " :Go...
 " (.) / (ctrl + X + O)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+"--- vue
+Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
 filetype indent plugin on
