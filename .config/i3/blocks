@@ -22,7 +22,7 @@ interval=10
 
 [battery]
 command=sh ~/.config/i3/script/battery.sh
-interval=30
+interval=1
 
 [datetime]
 label= 
