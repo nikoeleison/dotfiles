@@ -240,7 +240,7 @@ client.background				$bg
 bar {
 	#status_command i3status -c ~/.config/i3/status
 	status_command i3blocks -c ~/.config/i3/blocks
-	#position top
+	position top
 	colors {
 		background	$bg
 		statusline 	$fg
