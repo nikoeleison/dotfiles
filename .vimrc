@@ -97,6 +97,7 @@ set completeopt=longest,menuone
 "set autoread
 "set mouse=a
 set pastetoggle=<F2>
+nmap <Leader>r :source %<CR>
 
 "=============
 "=== VISUAL
@@ -133,7 +134,7 @@ let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='-'
 
 "--- prettier
-nmap <Leader>py <Plug>(Prettier)
+"nmap <Leader>py <Plug>(Prettier)
 let g:prettier#config#single_quote = 'true'
 
 "--- go
