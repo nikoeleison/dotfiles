@@ -96,6 +96,7 @@ set notimeout ttimeout ttimeoutlen=200
 set completeopt=longest,menuone
 "set autoread
 "set mouse=a
+set pastetoggle=<F2>
 
 "=============
 "=== VISUAL
