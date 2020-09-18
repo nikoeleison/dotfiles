@@ -136,6 +136,8 @@ let g:NERDTreeDirArrowCollapsible='-'
 "--- prettier
 "nmap <Leader>py <Plug>(Prettier)
 let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'false'
+let g:prettier#config#trailing_comma = 'none'
 
 "--- go
 let g:go_fmt_command="goimports"
