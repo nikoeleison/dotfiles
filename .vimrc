@@ -36,12 +36,20 @@ Plug 'airblade/vim-gitgutter'
 " (ctrl + y + ,)
 Plug 'mattn/emmet-vim'
 
+"--- prettier
+" \ + p
+Plug 'prettier/vim-prettier', {
+	\ 'do': 'yarn install',
+	\ 'for': ['javascript', 'css', 'scss', 'json', 'markdown', 'vue', 'jsx', 'yaml', 'html'] }
+
 "--- go
 " :Go...
 " (.) / (ctrl + X + O)
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-"--- vue
+"--- js
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
@@ -122,6 +130,10 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='-'
+
+"--- prettier
+nmap <Leader>py <Plug>(Prettier)
+let g:prettier#config#single_quote = 'true'
 
 "--- go
 let g:go_fmt_command="goimports"
