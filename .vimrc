@@ -97,7 +97,8 @@ set completeopt=longest,menuone
 "set autoread
 "set mouse=a
 set pastetoggle=<F2>
-nmap <Leader>r :source %<CR>
+nmap <Leader>r :edit %<CR>
+nmap <Leader>s :source %<CR>
 
 "=============
 "=== VISUAL
