@@ -39,6 +39,7 @@ call plug#begin("~/.vim/plugged")
 
 	"--- deoplete
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 	"--- js
 	Plug 'pangloss/vim-javascript'
@@ -135,3 +136,24 @@ let g:prettier#config#trailing_comma = 'none'
 
 "--- deoplete
 let g:deoplete#enable_at_startup = 1
+
+let g:deoplete#sources#ternjs#tern_bin = '$HOME/.nvm/versions/node/v12.16.2/bin/node/tern'
+let g:deoplete#sources#ternjs#timeout = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#filter = 0
+let g:deoplete#sources#ternjs#case_insensitive = 1
+let g:deoplete#sources#ternjs#guess = 0
+let g:deoplete#sources#ternjs#sort = 0
+let g:deoplete#sources#ternjs#expand_word_forward = 0
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+let g:deoplete#sources#ternjs#in_literal = 0
+let g:deoplete#sources#ternjs#filetypes = [
+                \ 'jsx',
+                \ 'javascript.jsx',
+                \ 'vue',
+                \ '...'
+                \ ]
+
