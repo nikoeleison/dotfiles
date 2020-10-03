@@ -39,6 +39,11 @@ call plug#begin("~/.vim/plugged")
 
 	"--- deoplete
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+	"--- js
+	Plug 'pangloss/vim-javascript'
+	Plug 'mxw/vim-jsx'
+	Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
 filetype indent plugin on
