@@ -42,6 +42,14 @@ call plug#begin("~/.vim/plugged")
 		\ 'for': ['javascript', 'css', 'scss', 'json', 'markdown', 'jsx', 'yaml', 'html'] }
 
 	"--- coc
+	" coc-json, coc-eslint, coc-tsserver
+	" autocomplete: ctrl+space, tab
+	" dignostic next/prev: [g/]g
+	" definition: gd
+	" type-definition: gy
+	" implementation: gi
+	" references: gr
+	" documentation: K
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -70,6 +78,7 @@ set hlsearch
 "--- indentation
 set backspace=indent,eol,start
 set autoindent
+set smartindent
 
 "--- tab
 set shiftwidth=2
@@ -128,3 +137,41 @@ nmap <silent> <Leader>t <Plug>(Prettier)
 let g:prettier#config#single_quote='true'
 let g:prettier#config#semi='false'
 let g:prettier#config#trailing_comma='none'
+
+"--- coc
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
