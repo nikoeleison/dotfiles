@@ -1,6 +1,6 @@
 " @author nikoeleison
 " - target: ~/.config/nvim/init.vim
-"	- reload: :source ~/.config/nvim/init.vim
+" - reload: :source ~/.config/nvim/init.vim
 
 if &compatible
   set nocompatible
