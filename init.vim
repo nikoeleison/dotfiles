@@ -34,6 +34,7 @@ call plug#begin("~/.vim/plugged")
 	"--- fzf
 	" (ctrl + p)
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
 
 	"--- prettier
 	" (\ + t)
@@ -130,7 +131,7 @@ let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='-'
 
 "--- fzf
-nnoremap <silent> <C-p> :FZF<Cr>
+nnoremap <silent> <C-p> :Files<Cr>
 
 "--- prettier
 nmap <silent> <Leader>t <Plug>(Prettier)
