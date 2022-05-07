@@ -40,7 +40,7 @@ call plug#begin("~/.vim/plugged")
 	" (\ + t)
 	Plug 'prettier/vim-prettier', {
 		\ 'do': 'yarn install',
-		\ 'for': ['javascript', 'css', 'scss', 'json', 'markdown', 'jsx', 'yaml', 'html'] }
+		\ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'css', 'scss', 'json', 'yaml', 'markdown'] }
 
 	"--- coc
 	" coc-json, coc-eslint, coc-tsserver
