@@ -9,6 +9,10 @@ endif
 call plug#begin("~/.vim/plugged")
 	"--- colorscheme
 	Plug 'dylanaraps/wal.vim'
+	Plug 'dracula/vim', { 'as': 'dracula' }
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'ericbn/vim-solarized'
+	Plug 'NLKNguyen/papercolor-theme'
 
 	"--- airline
 	Plug 'vim-airline/vim-airline'
@@ -20,6 +24,9 @@ call plug#begin("~/.vim/plugged")
 	"--- nerdcommenter
 	" (\ + c + <space>)
 	Plug 'scrooloose/nerdcommenter'
+
+	"--- autopairs
+	Plug 'jiangmiao/auto-pairs'
 
 	"--- git branch
 	Plug 'tpope/vim-fugitive'
@@ -38,9 +45,9 @@ call plug#begin("~/.vim/plugged")
 
 	"--- prettier
 	" (\ + t)
-	Plug 'prettier/vim-prettier', {
-		\ 'do': 'yarn install',
-		\ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'css', 'scss', 'json', 'yaml', 'markdown'] }
+	"Plug 'prettier/vim-prettier', {
+		"\ 'do': 'yarn install',
+		"\ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'css', 'scss', 'json', 'yaml', 'markdown'] }
 
 	"--- coc
 	" coc-json, coc-eslint, coc-tsserver
@@ -52,6 +59,13 @@ call plug#begin("~/.vim/plugged")
 	" references: gr
 	" documentation: K
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+	"dart/flutter
+	Plug 'dart-lang/dart-vim-plugin'
+
+	"--- ts/tsx
+	"Plug 'leafgarland/typescript-vim'
+	"Plug 'ianks/vim-tsx'
 call plug#end()
 
 "============
@@ -83,7 +97,7 @@ set smartindent
 
 "--- tab
 set shiftwidth=2
-"set softtabstop=2
+"set softtabstop=0 noexpandtab
 "set expandtab
 set tabstop=2
 
@@ -111,6 +125,16 @@ set laststatus=2
 set visualbell
 set t_vb=
 
+"--- move in insert mode
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
 "====================
 "=== PLUG SETTINGS
 "====================
@@ -125,19 +149,26 @@ let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline#extensions#tabline#formatter='default'
 
 "--- nerdtree
-map <silent> <C-n> :NERDTreeToggle<CR>
+"map <silent> <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='-'
+let g:NERDTreeGitStatusWithFlags=1
+
+"--- autopairs
+let g:AutoPairsFlyMode=0
+let g:AutoPairsMapCh=0
 
 "--- fzf
 nnoremap <silent> <C-p> :Files<Cr>
 
 "--- prettier
-nmap <silent> <Leader>t <Plug>(Prettier)
-let g:prettier#config#single_quote='true'
-let g:prettier#config#semi='false'
-let g:prettier#config#trailing_comma='none'
+vmap <leader>t  <Plug>(coc-format)
+nmap <leader>t  <Plug>(coc-format)
+"nmap <silent> <Leader>t <Plug>(Prettier)
+"let g:prettier#config#single_quote='true'
+"let g:prettier#config#semi='false'
+"let g:prettier#config#trailing_comma='none'
 
 "--- coc
 inoremap <silent><expr> <TAB>
@@ -176,3 +207,41 @@ function! s:show_documentation()
     call feedkeys('K', 'in')
   endif
 endfunction
+
+let g:coc_global_extensions=[
+	\ 'coc-eslint',
+	\ 'coc-prettier',
+	\ 'coc-tsserver',
+	\ 'coc-json',
+	\ 'coc-flutter',
+	"\ 'coc-java',
+	\ ]
+
+nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
+nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
+nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
+
+"explorer
+let g:coc_explorer_global_presets = {
+\   'workspace': {
+\     'width': 30,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
+nmap <C-n> <Cmd>CocCommand explorer --preset workspace<CR>
+
+" List all presets
+nmap <space>el <Cmd>CocList explPresets<CR>
+
+"--- dart/flutter
+"let g:dart_format_on_save=1
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
+
+"--- ts/tsx
+autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
