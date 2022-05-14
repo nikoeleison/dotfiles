@@ -31,7 +31,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'jiangmiao/auto-pairs'
 
   "--- fzf
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
 
   "--- coc
