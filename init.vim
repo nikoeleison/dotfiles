@@ -7,35 +7,35 @@ if &compatible
 endif
 
 call plug#begin("~/.vim/plugged")
-	"--- colorscheme
-	Plug 'dylanaraps/wal.vim'
+  "--- colorscheme
+  Plug 'dylanaraps/wal.vim'
 
-	"--- airline
-	Plug 'vim-airline/vim-airline'
+  "--- airline
+  Plug 'vim-airline/vim-airline'
 
-	"--- fugitive
-	Plug 'tpope/vim-fugitive'
+  "--- fugitive
+  Plug 'tpope/vim-fugitive'
 
-	"--- gitgutter
-	Plug 'airblade/vim-gitgutter'
+  "--- gitgutter
+  Plug 'airblade/vim-gitgutter'
 
-	"--- nerdcommenter
-	" (\ + c + <space>)
-	Plug 'scrooloose/nerdcommenter'
+  "--- nerdcommenter
+  " (\ + c + <space>)
+  Plug 'scrooloose/nerdcommenter'
 
-	"--- emmet
-	" (ctrl + y + ,)
-	Plug 'mattn/emmet-vim'
+  "--- emmet
+  " (ctrl + y + ,)
+  Plug 'mattn/emmet-vim'
 
-	"--- autopairs
-	Plug 'jiangmiao/auto-pairs'
+  "--- autopairs
+  Plug 'jiangmiao/auto-pairs'
 
-	"--- fzf
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
+  "--- fzf
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
 
-	"--- coc
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "--- coc
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "============
@@ -66,6 +66,7 @@ set smartindent
 "--- tab
 set shiftwidth=2
 set tabstop=2
+set expandtab
 
 "--- backup & swap files
 set nobackup
@@ -120,27 +121,27 @@ nnoremap <silent> <C-g> :Rg!<Cr>
 
 "--- coc
 let g:coc_global_extensions=[
-\		'coc-explorer',
-\		'coc-eslint',
-\		'coc-prettier',
-\		'coc-tsserver',
-\		'coc-flutter',
-\	]
+\   'coc-explorer',
+\   'coc-eslint',
+\   'coc-prettier',
+\   'coc-tsserver',
+\   'coc-flutter',
+\ ]
 
 if has('nvim')
-	inoremap <silent><expr> <C-space> coc#refresh()
+  inoremap <silent><expr> <C-space> coc#refresh()
 else
-	inoremap <silent><expr> <c-@> coc#refresh()
+  inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-	if CocAction('hasProvider', 'hover')
-		call CocActionAsync('doHover')
-	else
-		call feedkeys('K', 'in')
-	endif
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
 endfunction
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -156,13 +157,13 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>af  <Plug>(coc-fix-current)
 
 let g:coc_explorer_global_presets={
-\	'explorer': {
-\		'width': 30,
-\			'open-action-strategy': 'sourceWindow',
-\		},
-\		'buffer': {
-\			'sources': [{'name': 'buffer', 'expand': v:true}]
-\		},
-\	}
+\ 'explorer': {
+\   'width': 30,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
 
 nmap <C-n> <Cmd>CocCommand explorer --preset explorer<CR>
