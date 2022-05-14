@@ -9,63 +9,33 @@ endif
 call plug#begin("~/.vim/plugged")
 	"--- colorscheme
 	Plug 'dylanaraps/wal.vim'
-	Plug 'dracula/vim', { 'as': 'dracula' }
-	Plug 'arcticicestudio/nord-vim'
-	Plug 'ericbn/vim-solarized'
-	Plug 'NLKNguyen/papercolor-theme'
 
 	"--- airline
 	Plug 'vim-airline/vim-airline'
 
-	"--- nerdtree
-	" (ctrl + n)
-	Plug 'scrooloose/nerdtree'
+	"--- fugitive
+	Plug 'tpope/vim-fugitive'
+
+	"--- gitgutter
+	Plug 'airblade/vim-gitgutter'
 
 	"--- nerdcommenter
 	" (\ + c + <space>)
 	Plug 'scrooloose/nerdcommenter'
 
-	"--- autopairs
-	Plug 'jiangmiao/auto-pairs'
-
-	"--- git branch
-	Plug 'tpope/vim-fugitive'
-
-	"--- git line
-	Plug 'airblade/vim-gitgutter'
-
 	"--- emmet
 	" (ctrl + y + ,)
 	Plug 'mattn/emmet-vim'
 
+	"--- autopairs
+	Plug 'jiangmiao/auto-pairs'
+
 	"--- fzf
-	" (ctrl + p)
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 
-	"--- prettier
-	" (\ + t)
-	"Plug 'prettier/vim-prettier', {
-		"\ 'do': 'yarn install',
-		"\ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'css', 'scss', 'json', 'yaml', 'markdown'] }
-
 	"--- coc
-	" coc-json, coc-eslint, coc-tsserver
-	" autocomplete: ctrl+space, tab
-	" dignostic next/prev: [g/]g
-	" definition: gd
-	" type-definition: gy
-	" implementation: gi
-	" references: gr
-	" documentation: K
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-	"dart/flutter
-	Plug 'dart-lang/dart-vim-plugin'
-
-	"--- ts/tsx
-	"Plug 'leafgarland/typescript-vim'
-	"Plug 'ianks/vim-tsx'
 call plug#end()
 
 "============
@@ -87,8 +57,6 @@ set showcmd
 
 "--- search
 set hlsearch
-"set ignorecase
-"set smartcase
 
 "--- indentation
 set backspace=indent,eol,start
@@ -97,8 +65,6 @@ set smartindent
 
 "--- tab
 set shiftwidth=2
-"set softtabstop=0 noexpandtab
-"set expandtab
 set tabstop=2
 
 "--- backup & swap files
@@ -106,26 +72,19 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-"--- dll
-set nostartofline
-set notimeout ttimeout ttimeoutlen=200
-set completeopt=longest,menuone
-"set autoread
-"set mouse=a
-
-"=============
-"=== VISUAL
-"=============
-
-"--- basic
+"--- visual
 set number
 set ruler
-"set cursorline
 set laststatus=2
 set visualbell
 set t_vb=
 
-"--- move in insert mode
+"--- dll
+set nostartofline
+set notimeout ttimeout ttimeoutlen=200
+set completeopt=longest,menuone
+
+"--- navigation
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -135,9 +94,12 @@ cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 
-"====================
-"=== PLUG SETTINGS
-"====================
+"==============
+"=== PLUGINS
+"==============
+
+autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 "--- colorscheme
 colorscheme wal
@@ -148,55 +110,28 @@ let g:airline#extensions#tabline#left_sep=' '
 let g:airline#extensions#tabline#left_alt_sep='|'
 let g:airline#extensions#tabline#formatter='default'
 
-"--- nerdtree
-"map <silent> <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let g:NERDTreeDirArrowExpandable='+'
-let g:NERDTreeDirArrowCollapsible='-'
-let g:NERDTreeGitStatusWithFlags=1
-
 "--- autopairs
 let g:AutoPairsFlyMode=0
 let g:AutoPairsMapCh=0
 
 "--- fzf
 nnoremap <silent> <C-p> :Files<Cr>
-
-"--- prettier
-vmap <leader>t  <Plug>(coc-format)
-nmap <leader>t  <Plug>(coc-format)
-"nmap <silent> <Leader>t <Plug>(Prettier)
-"let g:prettier#config#single_quote='true'
-"let g:prettier#config#semi='false'
-"let g:prettier#config#trailing_comma='none'
+nnoremap <silent> <C-g> :Rg!<Cr>
 
 "--- coc
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+let g:coc_global_extensions=[
+\ 'coc-explorer',
+\ 'coc-eslint',
+\ 'coc-prettier',
+\ 'coc-tsserver',
+\ 'coc-flutter',
+\ ]
 
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+  inoremap <silent><expr> <C-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -208,23 +143,20 @@ function! s:show_documentation()
   endif
 endfunction
 
-let g:coc_global_extensions=[
-	\ 'coc-eslint',
-	\ 'coc-prettier',
-	\ 'coc-tsserver',
-	\ 'coc-json',
-	\ 'coc-flutter',
-	"\ 'coc-java',
-	\ ]
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-nmap <space>ed <Cmd>CocCommand explorer --preset .vim<CR>
-nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
-nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
-nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
+nmap <silent> <leader>t  <Plug>(coc-format)
 
-"explorer
-let g:coc_explorer_global_presets = {
-\   'workspace': {
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>af  <Plug>(coc-fix-current)
+
+let g:coc_explorer_global_presets={
+\   'explorer': {
 \     'width': 30,
 \     'open-action-strategy': 'sourceWindow',
 \   },
@@ -232,16 +164,5 @@ let g:coc_explorer_global_presets = {
 \     'sources': [{'name': 'buffer', 'expand': v:true}]
 \   },
 \ }
-nmap <C-n> <Cmd>CocCommand explorer --preset workspace<CR>
 
-" List all presets
-nmap <space>el <Cmd>CocList explPresets<CR>
-
-"--- dart/flutter
-"let g:dart_format_on_save=1
-xmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
-
-"--- ts/tsx
-autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+nmap <C-n> <Cmd>CocCommand explorer --preset explorer<CR>
