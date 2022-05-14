@@ -34,6 +34,9 @@ call plug#begin("~/.vim/plugged")
   Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
   Plug 'junegunn/fzf.vim'
 
+  "--- treesitter
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
   "--- coc
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
@@ -99,8 +102,8 @@ cnoremap <C-l> <Right>
 "=== PLUGINS
 "==============
 
-autocmd BufNewFile,BufRead *.ts,*.js set filetype=typescript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 "--- colorscheme
 colorscheme wal
@@ -118,6 +121,22 @@ let g:AutoPairsMapCh=0
 "--- fzf
 nnoremap <silent> <C-p> :Files<Cr>
 nnoremap <silent> <C-g> :Rg!<Cr>
+
+"--- treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight={
+    enable=true
+  },
+  ensure_installed={
+    "tsx",
+    "dart"
+  }
+}
+
+local parser_config=require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.tsx.filetype_to_parsername={ "typescript.tsx" }
+EOF
 
 "--- coc
 let g:coc_global_extensions=[
