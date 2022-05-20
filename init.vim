@@ -130,7 +130,8 @@ require'nvim-treesitter.configs'.setup {
   },
   ensure_installed={
     "tsx",
-    "dart"
+    "dart",
+    "java"
   }
 }
 
@@ -145,6 +146,7 @@ let g:coc_global_extensions=[
 \   'coc-prettier',
 \   'coc-tsserver',
 \   'coc-flutter',
+\   'coc-java',
 \ ]
 
 if has('nvim')
@@ -169,11 +171,12 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <silent> <leader>t  <Plug>(coc-format)
+nmap <silent> <leader>rn <Plug>(coc-rename)
 
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac  <Plug>(coc-codeaction)
-nmap <leader>af  <Plug>(coc-fix-current)
+xmap <silent> <leader>a  <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>a  <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>ac  <Plug>(coc-codeaction)
+nmap <silent> <leader>af  <Plug>(coc-fix-current)
 
 let g:coc_explorer_global_presets={
 \ 'explorer': {
