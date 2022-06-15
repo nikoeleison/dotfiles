@@ -102,6 +102,9 @@ cnoremap <C-l> <Right>
 "=== PLUGINS
 "==============
 
+autocmd FileType css setl iskeyword+=-
+autocmd FileType scss setl iskeyword+=@-@
+
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
@@ -145,6 +148,8 @@ let g:coc_global_extensions=[
 \   'coc-eslint',
 \   'coc-prettier',
 \   'coc-tsserver',
+\   'coc-html',
+\   'coc-css',
 \   'coc-flutter',
 \   'coc-java',
 \ ]
