@@ -5,18 +5,15 @@ return {
     lspconfig['tsserver'].setup {
       on_attach = mixin.on_attach,
       capabilities = mixin.capabilities,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      filetypes = { 
+      flags = mixin.flags,
+      filetypes = {
         'javascript',
         'javascript.jsx',
         'javascriptreact',
-        'typescript', 
+        'typescript',
         'typescript.tsx',
         'typescriptreact',
       },
     }
   end
 }
-

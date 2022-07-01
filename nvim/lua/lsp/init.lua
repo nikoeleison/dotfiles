@@ -1,10 +1,10 @@
 local telescopebuiltin = require('telescope.builtin')
 
-local signs = {Error = ' ', Warn = ' ', Hint = ' ', Info = ' '}
+local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
 
 for type, icon in pairs(signs) do
   local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ''})
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
 end
 
 vim.diagnostic.config({
@@ -14,6 +14,10 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(client, bufnr)
+  if client.name == "yamlls" then
+    client.resolved_capabilities.document_formatting = true
+  end
+
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local opts = { noremap = true, silent = true }
@@ -49,7 +53,10 @@ local mixin = {
   },
 }
 
+require('lsp/_sumneko_lua').Setup(mixin)
 require('lsp/_tsserver').Setup(mixin)
-require('lsp/_jdtls').Setup(mixin)
 require('lsp/_cssls').Setup(mixin)
 require('lsp/_html').Setup(mixin)
+require('lsp/_yamlls').Setup(mixin)
+require('lsp/_jdtls').Setup(mixin)
+require('lsp/_lemminx').Setup(mixin)

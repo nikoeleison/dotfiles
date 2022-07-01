@@ -6,15 +6,15 @@ return {
       on_attach = mixin.on_attach,
       capabilities = mixin.capabilities,
       flags = mixin.flags,
-      filetypes = { 
+      configurationSection = { 'html', 'css', 'javascript' },
+      embeddedLanguages = {
+        css = true,
+        javascript = true
+      },
+      provideFormatter = true,
+      filetypes = {
         'html',
       },
-      configurationSection = { 'html', 'css', 'javascript' },
-        embeddedLanguages = {
-          css = true,
-          javascript = true
-        },
-        provideFormatter = true,
     }
   end
 }

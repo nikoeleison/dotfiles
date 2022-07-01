@@ -19,7 +19,7 @@ vim.g.Hexokinase_ftEnabled = {
   'javascript',
   'javascript.jsx',
   'javascriptreact',
-  'typescript', 
+  'typescript',
   'typescript.tsx',
   'typescriptreact',
 }

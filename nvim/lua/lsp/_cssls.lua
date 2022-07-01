@@ -6,7 +6,7 @@ return {
       on_attach = mixin.on_attach,
       capabilities = mixin.capabilities,
       flags = mixin.flags,
-      filetypes = { 
+      filetypes = {
         'css',
         'scss',
         'less',

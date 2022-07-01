@@ -8,7 +8,7 @@ require('telescope').setup {
     sorting_strategy = 'descending',
     layout_strategy = 'bottom_pane',
     prompt_prefix = '>> ',
-    borderchars = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+    borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
     mappings = {
       i = {
         ['<C-j>'] = actions.move_selection_next,

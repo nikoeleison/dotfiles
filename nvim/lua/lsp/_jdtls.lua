@@ -1,16 +1,14 @@
 local lspconfig = require('lspconfig')
 
-local JDTLS_PATH = vim.fn.stdpath('data') .. '/lsp_servers/jdtls-1.10.0'
+local JDTLS_PATH = vim.fn.stdpath('data') .. '/lsp_servers/jdt-language-server-1.10.0-202203040350'
 
 return {
   Setup = function(mixin)
     lspconfig['jdtls'].setup {
       on_attach = mixin.on_attach,
       capabilities = mixin.capabilities,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      cmd = { 
+      flags = mixin.flags,
+      cmd = {
         '/usr/lib/jvm/java-11-openjdk/bin/java',
 
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -36,9 +34,9 @@ return {
         '-data',
         JDTLS_PATH .. '/ws/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t'),
       },
-      filetypes = { 
+      filetypes = {
         'java',
       },
-    }  
+    }
   end
 }

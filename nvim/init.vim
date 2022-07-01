@@ -71,6 +71,7 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 autocmd Filetype java setlocal shiftwidth=4 tabstop=4 noexpandtab
+autocmd Filetype xml setlocal shiftwidth=4 tabstop=4 noexpandtab
 
 "--- backup & swap files
 set nobackup
@@ -116,36 +117,15 @@ map bp :bp<CR>
 "==============
 
 lua << EOF
-  --- colorscheme
   require('_colorscheme')
-
-  --- lualine
   require('_lualine')
-
-  --- tree
   require('_tree')
-
-  --- telescope
   require('_telescope')
-
-  --- gitsigns
   require('_gitsigns')
-
-  --- blankline
   require('_blankline')
-
-  --- hexokinase
   require('_hexokinase')
-
-  --- treesitter
   require('_treesitter')
-
-  --- lsp
   require('lsp')
-
-  --- cmp
   require('_cmp')
-
-  --- vsnip
   require('_vsnip')
 EOF

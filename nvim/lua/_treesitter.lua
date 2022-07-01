@@ -1,8 +1,8 @@
 require('nvim-treesitter.configs').setup {
-  highlight={
-    enable=true,
+  highlight = {
+    enable = true,
   },
-  ensure_installed={
+  ensure_installed = {
     'lua',
     'tsx',
     'java',
