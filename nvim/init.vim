@@ -10,6 +10,7 @@ call plug#begin("~/.vim/plugged")
   "--- colorscheme
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   Plug 'Mofiqul/vscode.nvim'
+  Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 
   "--- lualine
   Plug 'nvim-lualine/lualine.nvim'

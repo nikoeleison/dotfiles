@@ -11,3 +11,9 @@ vim.cmd [[colorscheme tokyonight]]
 --vim.g.vscode_italic_comment = 1
 --vim.g.vscode_disable_nvimtree_bg = false
 --vim.cmd([[colorscheme vscode]])
+
+--vim.g.gruvbox_baby_function_style = "italic"
+--vim.g.gruvbox_baby_keyword_style = "italic"
+--vim.g.gruvbox_baby_telescope_theme = 1
+--vim.g.gruvbox_baby_transparent_mode = 1
+--vim.cmd [[colorscheme gruvbox-baby]]

@@ -14,9 +14,7 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(client, bufnr)
-  if client.name == "yamlls" then
-    client.resolved_capabilities.document_formatting = true
-  end
+  client.resolved_capabilities.document_formatting = true
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
