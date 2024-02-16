@@ -14,7 +14,7 @@ vim.diagnostic.config({
 })
 
 local on_attach = function(client, bufnr)
-  client.resolved_capabilities.document_formatting = true
+  --client.resolved_capabilities.document_formatting = true
 
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -39,9 +39,10 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>t', vim.lsp.buf.formatting, bufopts)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+--capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+--capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local mixin = {
   on_attach = on_attach,
@@ -51,7 +52,7 @@ local mixin = {
   },
 }
 
-require('lsp/_sumneko_lua').Setup(mixin)
+--require('lsp/_sumneko_lua').Setup(mixin)
 require('lsp/_tsserver').Setup(mixin)
 require('lsp/_cssls').Setup(mixin)
 require('lsp/_html').Setup(mixin)

@@ -2,7 +2,7 @@ require('nvim-tree').setup {
   hijack_cursor = true,
   view = {
     adaptive_size = true,
-    hide_root_folder = true,
+    --hide_root_folder = true,
   },
   renderer = {
     group_empty = true,
