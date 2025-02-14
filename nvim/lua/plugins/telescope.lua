@@ -3,6 +3,9 @@ local actions = require('telescope.actions')
 
 require('telescope').setup {
 	defaults = {
+		preview = {
+			treesitter = false,
+		},
 		layout_config = {
 			prompt_position = 'bottom',
 		},
