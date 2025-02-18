@@ -5,7 +5,7 @@
 --[[ plugins ]]--
 vim.cmd [[packadd packer.nvim]]
 
-local packer = require('packer').startup(function(use)
+local packer=require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
 	use 'folke/tokyonight.nvim'
@@ -35,30 +35,30 @@ local packer = require('packer').startup(function(use)
 end)
 
 --[[ options ]]--
-vim.opt.number = true
-vim.opt.ruler = true
-vim.opt.cursorline = true
+vim.opt.number=true
+vim.opt.ruler=true
+vim.opt.cursorline=true
 
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.expandtab = false
-vim.opt.smartindent = true
+vim.opt.shiftwidth=2
+vim.opt.tabstop=2
+vim.opt.expandtab=false
+vim.opt.smartindent=true
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+vim.opt.hlsearch=true
+vim.opt.incsearch=true
 
-vim.opt.backup = false
-vim.opt.writebackup = false
-vim.opt.swapfile = false
+vim.opt.backup=false
+vim.opt.writebackup=false
+vim.opt.swapfile=false
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitright=true
+vim.opt.splitbelow=true
 
-vim.opt.termguicolors = true
-vim.opt.clipboard = 'unnamedplus' -- yank xclip
+vim.opt.termguicolors=true
+vim.opt.clipboard='unnamedplus' -- yank xclip
 
-vim.opt.wrap = false
-vim.opt.fixeol = false -- no newline at end of file
+vim.opt.wrap=false
+vim.opt.fixeol=false -- no newline at end of file
 
 --[[ keymaps ]]--
 vim.keymap.set('i', '<C-h>', '<Left>')
